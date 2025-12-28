@@ -2,95 +2,150 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
+@import '@fontsource/ibm-plex-mono/600.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+
+/* 
+  DETTY RECEIPTS - Culture Watchdog Design System
+  Aesthetic: Evidence-based, brutalist-editorial, newspaper meets courtroom
+  No entertainment - just facts and accountability
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core palette - clean, factual, no-nonsense */
+    --background: 60 10% 98%;
+    --foreground: 0 0% 8%;
 
+    /* Cards and containers */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 8%;
 
+    /* Popover elements */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Deep black for authority */
+    --primary: 0 0% 8%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Light gray for subtle elements */
+    --secondary: 60 5% 94%;
+    --secondary-foreground: 0 0% 8%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted elements */
+    --muted: 60 5% 92%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Amber/red for accountability highlights */
+    --accent: 60 5% 94%;
+    --accent-foreground: 0 0% 8%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Destructive - For failures and warnings */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders - subtle but present */
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 0% 8%;
 
-    --radius: 0.5rem;
+    --radius: 0.375rem;
 
+    /* === DELIVERY STATUS COLORS === */
+    /* Success - On Time / Good Delivery */
+    --status-success: 142 70% 45%;
+    --status-success-bg: 142 70% 96%;
+    --status-success-foreground: 142 70% 25%;
+
+    /* Warning - Late but delivered */
+    --status-warning: 38 92% 50%;
+    --status-warning-bg: 38 92% 96%;
+    --status-warning-foreground: 38 92% 30%;
+
+    /* Failure - Failed delivery */
+    --status-failure: 0 72% 51%;
+    --status-failure-bg: 0 72% 97%;
+    --status-failure-foreground: 0 72% 35%;
+
+    /* Neutral - Pending / Not started */
+    --status-neutral: 0 0% 55%;
+    --status-neutral-bg: 0 0% 95%;
+    --status-neutral-foreground: 0 0% 35%;
+
+    /* === TRUST LEVELS === */
+    --trust-mod: 230 80% 55%;
+    --trust-verified: 142 70% 45%;
+    --trust-crowd: 38 92% 50%;
+    --trust-disputed: 0 72% 51%;
+
+    /* === TYPOGRAPHY === */
+    --font-mono: 'IBM Plex Mono', monospace;
+    --font-sans: 'Inter', system-ui, sans-serif;
+
+    /* === SHADOWS - minimal, editorial === */
+    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.04), 0 1px 2px -1px hsl(0 0% 0% / 0.04);
+    --shadow-elevated: 0 4px 6px -1px hsl(0 0% 0% / 0.05), 0 2px 4px -2px hsl(0 0% 0% / 0.05);
+    
+    /* Sidebar (keeping for shadcn compatibility) */
     --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-foreground: 0 0% 8%;
+    --sidebar-primary: 0 0% 8%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 60 5% 94%;
+    --sidebar-accent-foreground: 0 0% 8%;
+    --sidebar-border: 0 0% 88%;
+    --sidebar-ring: 0 0% 8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 6%;
+    --foreground: 60 5% 94%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 9%;
+    --card-foreground: 60 5% 94%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 60 5% 94%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 60 5% 94%;
+    --primary-foreground: 0 0% 8%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 60 5% 94%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 0 0% 14%;
+    --accent-foreground: 60 5% 94%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 60 5% 94%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 60 5% 80%;
+
+    /* Status colors for dark mode */
+    --status-success-bg: 142 70% 12%;
+    --status-warning-bg: 38 92% 12%;
+    --status-failure-bg: 0 72% 12%;
+    --status-neutral-bg: 0 0% 15%;
+
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 60 5% 94%;
+    --sidebar-primary: 60 5% 94%;
+    --sidebar-primary-foreground: 0 0% 8%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 60 5% 94%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 60 5% 80%;
   }
 }
 
@@ -99,7 +154,97 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
+
+  /* Mono text for data/timestamps */
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  /* Evidence styling for key data points */
+  .evidence-text {
+    @apply font-mono text-sm tracking-tight;
+  }
+
+  /* Timestamp styling */
+  .timestamp {
+    @apply font-mono text-xs text-muted-foreground uppercase tracking-wider;
+  }
+}
+
+@layer components {
+  /* Evidence card base */
+  .evidence-card {
+    @apply bg-card border border-border p-4 transition-all duration-200;
+    box-shadow: var(--shadow-card);
+  }
+
+  .evidence-card:hover {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  /* Data comparison row */
+  .data-row {
+    @apply flex justify-between items-center py-2 border-b border-border last:border-0;
+  }
+
+  /* Status indicator dot */
+  .status-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+
+  /* Log entry styling */
+  .log-entry {
+    @apply relative pl-6 pb-4 border-l-2 border-border ml-2;
+  }
+
+  .log-entry::before {
+    content: '';
+    @apply absolute left-0 top-0 w-3 h-3 rounded-full bg-border -translate-x-1/2;
+  }
+
+  .log-entry.log-success::before {
+    @apply bg-[hsl(var(--status-success))];
+  }
+
+  .log-entry.log-warning::before {
+    @apply bg-[hsl(var(--status-warning))];
+  }
+
+  .log-entry.log-failure::before {
+    @apply bg-[hsl(var(--status-failure))];
+  }
+
+  /* Score display */
+  .score-display {
+    @apply font-mono text-2xl font-semibold tracking-tight;
+  }
+
+  .score-label {
+    @apply text-xs uppercase tracking-wider text-muted-foreground;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
