@@ -14,4 +14,7 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // Default base for Vercel deployments
+  // If deploying to GitHub Pages, override via `vite build --base=/DettyCheck/` or a separate config.
+  base: "/",
 }));
